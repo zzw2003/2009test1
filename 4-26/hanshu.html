@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ● 封装一个$函数，并实现DOM节点查找功能 id查找、class查找、元素查找
+//提示
+// function $(参数)
+// {
+//     if(参数=?){
+//         //id查找
+//     }else if(参数=?){
+//         // class查找
+//     }else if(参数=?){
+//         // 元素查找
+//     }
+// }
+
+function $(selector){
+    var strs = selector.split(" ");//通过空格切割传递的字符串
+    var result = document.getElementsByTagName("html");//获取最外层的dom元素
+    for(var i = 0,len = strs.length;i<len;i++){//根据传过来的字符串，一层一层的遍历查找dom
+        if(strs[i].charAt(0)==="#"){//如果是id，返回的是dom元素
+            result = document.getElementById(strs[i].slice(1));
+        }else if(strs[i].charAt(0)==="."){//如果是class，则返回的是一个伪数组（集合），需要加一个下标，才能获得dom
+            result = byClass(strs[i].slice(1),result[0]);
+        }else{//如果是tagName
+            if(i===0)//代表传递的字符串只有一个tagName，
+                result = result[0].getElementsByTagName(strs[i]);
+            else
+                if(strs[i-1].charAt(0)==="#")//代表上一个是id，返回的是dom，可以直接调用
+                    result = result.getElementsByTagName(strs[i]);
+                else//代表上一个是class或者tagName，返回的是集合，需要加下标
+                    result = result[0].getElementsByTagName(strs[i]);
+        }
+    }
+    
+    return result;
+}
+
+
+    </script>
+</body>
+</html>
