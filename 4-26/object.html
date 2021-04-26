@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数</title>
+</head>
+<body>
+    <script>
+        // var person = new Object();
+        // person.name = "Nicholas";
+        // parson.age = 29;
+        // person.job = "Software Engineer";
+        // person.sayName = function(){
+        //     alert(this.name);
+        // }
+
+        // var person = {
+        //     name: "Nicholas",
+        //     age:29,
+        //     job: "Software Engineer",
+        //     sayName: function(){
+        //         alert(this.name);
+        //     }
+        // };
+
+
+
+        //创建数组
+        var arr1 = [];
+        var arr2 = new Array()
+        console.log(arr1);
+        console.log(arr2);
+
+        var obj1 = {}
+        var obj2 = new Object()
+        console.log(obj1)
+        console.log(obj2)
+            
+        //自定义构造函数
+
+
+        var arr = new Array()
+        console.log(arr);
+        function Person(){
+            
+        }
+        var p1 = new Person()
+        console.log(p1);
+
+        //原型
+        function hello(){
+
+        }
+        console.log(hello.prototype)
+        console.log(typeof hello.prototype)
+
+        var obj = {}
+        obj.name = "张三"
+        obj.age = 11
+        obj.sex = "baoimi";
+
+        //定义一个构造函数
+        var arr = new Array();
+
+        function Person(name,sex,age){
+            this.name = name
+            this.age = age
+            this.sex = sex
+        }
+        
+        Person.prototype.name = "noname"
+        Person.prototype.age = 0
+        Person.prototype.sex = "保密"
+
+        var p1 = new Person()
+        console.log(p1)
+        console.log(p1.name)
+        console.log(p1.age)
+        console.log(p1.sex)
+
+        var p2 = new  Person()
+        console.log(p2);
+        console.log(p2.name);
+        console.log(p2.age);
+        console.log(p2.sex);
+
+
+
+        var p3 = new Person("zhangsan",11,"F");
+        console.log(p3)
+    </script>
+</body>
+</html>
